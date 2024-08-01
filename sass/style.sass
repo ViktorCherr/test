@@ -1,0 +1,142 @@
+*, ::after, ::before
+   margin: 0
+   padding: 0
+   box-sizing: border-box
+
+$brown-light: #BA8554
+$brown: #A14F03
+$bg-grey: #F7F7F7
+$linear-brown-black: linear-gradient(#BA8554, #000000)
+$linear-brown: linear-gradient(#C3956A, #A14F03)
+$font-grey: #777777
+
+
+html
+   font-size: 62.5%
+
+
+body
+   font-family: "Roboto", sans-serif
+   font-size: 1.6rem
+   font-weight: 400
+   color: $font-grey
+   letter-spacing: .2rem
+   padding: 5rem
+   background-color: #fff
+
+
+
+.container
+   background-color: $bg-grey
+
+.header
+   position: relative
+   height: 95vh
+   background: linear-gradient(90deg, rgba(186,133,84,0.6) 0%, rgba(1,1,1,0.6) 100%), url(../image/bg-header.jpg) center / cover no-repeat
+   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%)
+   &__logo
+      position: absolute
+      width: 5.6rem
+      height: 7rem
+      top: 5rem
+      left: 5rem
+   &__content
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -75%)
+      width: 100%
+      text-align: center
+
+.title-first
+   color: #fff
+   text-align: center
+   &__main
+      display: block
+      font-weight: 800
+      font-size: 5rem
+      letter-spacing: 1rem
+      margin-bottom: 1rem
+      text-transform: uppercase
+      animation: leftToRight 2s ease
+      backface-visibility: hidden
+   &__secondary
+      display: block
+      font-weight: 200
+      font-size: 4rem
+      letter-spacing: .5rem
+      margin-bottom: 5rem
+      animation: rightToLeft 2s ease
+      backface-visibility: hidden
+
+.button
+   &_animated
+      animation: bottomToTop 2s ease
+   &:link, &:visited   
+      position: relative
+      display: inline-block
+      text-decoration: none
+      text-transform: uppercase
+      color: $font-grey
+      font-size: 2rem
+      font-weight: 500
+      letter-spacing: .5rem
+      padding: 1.5rem 4rem
+      background-color: #fff
+      border-radius: 10rem
+      transition: all .3s ease
+   &:hover
+      transform: translateY(-.4rem)
+      box-shadow: (0rem .4rem .4rem rgba(0, 0, 0, 0.3))
+      &::after
+         animation: explode .3s ease
+   &:active
+      transform: translateY(-.2rem)
+      box-shadow: (0rem .4rem .4rem rgba(0, 0, 0, 0.1))
+   &::after
+      content: ''
+      background-color: #fff
+      border-radius: 10rem
+      display: inline-block
+      position: absolute
+      width: 27.5rem
+      height: 5.4rem
+      left: 0
+      top: 0
+      z-index: -1      
+
+
+@keyframes bottomToTop
+   0% 
+      opacity: 0
+      transform: translateY(5rem)
+   100%
+      opacity: 1
+      transform: translateY(0)
+
+
+@keyframes explode
+   0%
+      transform: scaleX(1) scaleY(1)
+      opacity: 1
+   100%
+      transform: scaleX(1.4) scaleY(2.2)
+      opacity: 0
+
+
+@keyframes leftToRight
+   0%
+      opacity: 0
+      transform: translateX(-50%)
+   100%
+      opacity: 1
+      transform: translateX(0%)
+
+@keyframes rightToLeft
+   0%
+      opacity: 0
+      transform: translateX(50%)
+   100%
+      opacity: 1
+      transform: translateX(0%)
+
